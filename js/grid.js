@@ -1,6 +1,6 @@
 function Grid(size) {
   this.size = size;
-  this.startTiles   = 2;
+  this.startTiles   = 1;
 
   this.cells = [];
 
@@ -34,7 +34,7 @@ Grid.prototype.randomAvailableCell = function () {
   var cells = this.availableCells();
 
   if (cells.length) {
-    return cells[Math.floor(Math.random() * cells.length)];
+    return cells[0];
   }
 };
 
@@ -120,7 +120,7 @@ Grid.prototype.addStartTiles = function () {
 // Adds a tile in a random position
 Grid.prototype.addRandomTile = function () {
   if (this.cellsAvailable()) {
-    var value = Math.random() < 0.9 ? 2 : 4;
+    var value = Math.random() < 0.9 ? 2 : 2;
     //var value = Math.random() < 0.9 ? 256 : 512;
     var tile = new Tile(this.randomAvailableCell(), value);
 
@@ -205,7 +205,7 @@ Grid.prototype.move = function (direction) {
 
           // The mighty 2048 tile
           if (merged.value === 2048) {
-            won = true;
+            //won = true;
           }
         } else {
           //if (debug) {
@@ -564,6 +564,7 @@ Grid.prototype.valueSum = function() {
 
 // check for win
 Grid.prototype.isWin = function() {
+  return false; // YOU CAN NEVER WIN MUAHAHAHA
   var self = this;
   for (var x=0; x<4; x++) {
     for (var y=0; y<4; y++) {
