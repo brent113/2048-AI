@@ -6,11 +6,14 @@ function AI(grid) {
 AI.prototype.eval = function() {
   var emptyCells = this.grid.availableCells().length;
 
-  var smoothWeight = 0.1,
+  var smoothWeight = 1.0,
+      //smoothWeight = 0.1,
       //monoWeight   = 0.0,
       //islandWeight = 0.0,
       mono2Weight  = 1.0,
-      emptyWeight  = 2.7,
+      //mono2Weight  = 3.0,
+      //emptyWeight  = 2.7,
+      emptyWeight  = 6.0,
       maxWeight    = 1.0;
 
   return this.grid.smoothness() * smoothWeight
@@ -71,9 +74,9 @@ AI.prototype.search = function(depth, alpha, beta, positions, cutoffs) {
     // with metrics from eval
     var candidates = [];
     var cells = this.grid.availableCells();
-    var scores = { 2: [], 4: [] };
+    var scores = { 2: [] };
     for (var value in scores) {
-      for (var i in cells) {
+      for (var i=0;i<1;i++) {
         scores[value].push(null);
         var cell = cells[i];
         var tile = new Tile(cell, parseInt(value, 10));
@@ -220,7 +223,7 @@ AI.prototype.iterativeDeep = function() {
       best = newBest;
     }
     depth++;
-  } while ( (new Date()).getTime() - start < minSearchTime);
+  } while ( (new Date()).getTime() - start < .1*minSearchTime);
   //console.log('depth', --depth);
   //console.log(this.translate(best.move));
   //console.log(best);
