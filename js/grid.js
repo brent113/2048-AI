@@ -6,16 +6,18 @@ function Grid(size) {
 
   this.build();
   this.playerTurn = true;
+  
+  // pre-allocate these objects (for speed)
+  for (var x=0; x<this.size; x++) {
+    Grid.prototype.indexes.push([]);
+    for (var y=0; y<this.size; y++) {
+      Grid.prototype.indexes[x].push( {x:x, y:y} );
+    }
+  }
 }
 
 // pre-allocate these objects (for speed)
 Grid.prototype.indexes = [];
-for (var x=0; x<this.size; x++) {
-  Grid.prototype.indexes.push([]);
-  for (var y=0; y<this.size; y++) {
-    Grid.prototype.indexes[x].push( {x:x, y:y} );
-  }
-}
 
 // Build a grid of the specified size
 Grid.prototype.build = function () {
