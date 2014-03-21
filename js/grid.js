@@ -478,7 +478,7 @@ Grid.prototype.monotonicity2 = function() {
       while ( next<this.size && !this.cellOccupied( this.indexes[x][next] )) {
         next++;
       }
-      if (next>=4) { next--; }
+      if (next>=this.size) { next--; }
       var currentValue = this.cellOccupied({x:x, y:current}) ?
         Math.log(this.cellContent( this.indexes[x][current] ).value) / Math.log(2) :
         0;
@@ -503,7 +503,7 @@ Grid.prototype.monotonicity2 = function() {
       while ( next<this.size && !this.cellOccupied( this.indexes[next][y] )) {
         next++;
       }
-      if (next>=4) { next--; }
+      if (next>=this.size) { next--; }
       var currentValue = this.cellOccupied({x:current, y:y}) ?
         Math.log(this.cellContent( this.indexes[current][y] ).value) / Math.log(2) :
         0;
