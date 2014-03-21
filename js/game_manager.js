@@ -92,6 +92,6 @@ GameManager.prototype.run = function() {
     var self = this;
     setTimeout(function(){
       self.run();
-    }, .05*timeout);
+    }, timeout);
   }
 }
