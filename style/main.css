@@ -107,7 +107,7 @@ hr {
   margin-bottom: 30px; }
 
 .container {
-  width: 745px;
+  width: 600px;
   margin: 0 auto; }
 
 @-webkit-keyframes fade-in {
@@ -141,8 +141,8 @@ hr {
   -moz-user-select: none;
   background: #bbada0;
   border-radius: 6px;
-  width: 745px;
-  height: 745px;
+  width: 600px;
+  height: 600px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -194,7 +194,7 @@ hr {
   z-index: 1; }
 
 .grid-row {
-  margin-bottom: 15px; }
+  margin-bottom: 12px; }
   .grid-row:last-child {
     margin-bottom: 0; }
   .grid-row:after {
@@ -203,9 +203,9 @@ hr {
     clear: both; }
 
 .grid-cell {
-  width: 106.25px;
-  height: 106.25px;
-  margin-right: 15px;
+  width: 85px;
+  height: 85px;
+  margin-right: 12px;
   float: left;
   border-radius: 3px;
   background: rgba(238, 228, 218, 0.35); }
